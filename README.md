@@ -3,30 +3,45 @@
 ## Description
 MERN Mavericks (a.k.a Massive Engineer Residential Nature) is a website designed to organize and plan out the homes of new homeowners. 
 
-## ERDs
-![Screenshot](./img/ERDs.png)
+## ERD
+<img src="./img/ERDs.png" width="400px" height="200px"/>
 
 ## Restful Routing Charts
-![Screenshot](./img/Wireframe.png)
-## Wireframes of all users
 
-## User Stories
-*As a user I want to see a list of housewares people have suggested for their new home
-*As a user I want to see details and comments for a particular item
-*As a user I want to read, create, edit, delete housewares I've bought and would recommend
-*As a user I want to see a list of housewares people have suggested for their new home
-sorted by category and possibly date entered
-*As a user I want to identify an item as having been purchased, to keep track of what I have bought and what is remaining
+| URL                      | CRUD   | HTTP verb | Example                                                            |
+|:------------------------ | ------ |:--------- |:------------------------------------------------------------------ |
+| /                        | READ   | GET       | loads all items                                                    |
+| /user                    | POST   | CREATE    | create new user                                                    |
+| /user                    | GET    | READ      | get user profile                                                   |
+| /item/:id                | GET    | READ      | display one item                                                   |
+| /item                    | POST   | CREATE    | create one item                                                    |
+| /item/:id                | PUT    | UPDATE    | update one item                                                    |
+| /item/:id                | DELETE | DESTROY   | destroy one item                                                   |
+
+
+## Wireframe and Routing Diagram
+![Screenshot](./img/Wireframe.png)
+
+
+## User Stories (MVP)
+* As a user I want to see a list of items
+* As a user I want to see the details for an item
+* As a user I want to create, edit, delete my items
+
 
 ## MVP Goals
-*Have an interactive front-end, using modern front-end framework
-*Provide the users an ability to CRUD
-*Display the list of houseware for users to gain inspiration
-*Be deployed online
-*Have a database
+* Use the MERN stack
+* Provide the users an ability to CRUD
+* Display the list of housewares for users to gain inspiration
+* Deployed website online
+
 
 ## Stretch Goals
-*Have a visually impressive design
-*Display cards as a form of displaying appliances
-*Favorite a post someone made
-*See all my favorites
+* Allow user to sort items by category and date entered
+* Add ability to favorite an item
+* Allow user to see all their favorites
+* Allow user to associate multiple categories to an item
+* Add visually appealing styling
+* Add ability to provide product reviews
+* Embed websites in the product cards (npm react-iframe)
+* Show images on product cards

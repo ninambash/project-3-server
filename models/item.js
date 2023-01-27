@@ -9,7 +9,8 @@ const itemSchema = new mongoose.Schema({
     name: {type: String},
     price: {type: Number},
     category: {type: String},
-    url: {type: String}
+    url: {type: String},
+    userId: {type: String}
 }, {
     timestamps: true // mongoose will manage create at and updated fields for us
 })
