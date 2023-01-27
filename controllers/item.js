@@ -6,9 +6,10 @@ const db = require('../models')
 
 // mount our routes on the router
 
-// GET /user -- get user profile 
+// // GET /user -- get user profile 
+// router.get('/')
 
-// POST /user -- create new user
+// // POST /user -- create new user
 
 // GET /item -- display all items
 
