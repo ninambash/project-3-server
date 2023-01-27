@@ -28,10 +28,10 @@ app.get('/', myMiddleware, (req, res) => {
   res.json({ msg: 'hello backend 🤖' })
 })
 
-// controllers
+// controllers and routes
 app.use('/api-v1/users', require('./controllers/api-v1/users.js'))
 
-// hey listen
+// hey listen on a port
 app.listen(PORT, () => {
   rowdyResults.print()
   console.log(`is that port ${PORT} I hear? 🙉`)

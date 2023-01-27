@@ -4,7 +4,7 @@
 MERN Mavericks (a.k.a Massive Engineer Residential Nature) is a website designed to organize and plan out the homes of new homeowners. 
 
 ## ERD
-<img src="./img/ERDs.png" width="400px" height="200px"/>
+<img src="./img/ERDsv2.png" width="400px" height="200px"/>
 
 ## Restful Routing Charts
 
