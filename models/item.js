@@ -6,15 +6,20 @@ const mongoose = require("mongoose")
 // mongoose.Schema({ key/val pairs for the model}, options object(mongoose config)})
 
 const itemSchema = new mongoose.Schema({
-    name: {type: String},
-    price: {type: Number},
-    category: {type: String},
-    url: {type: String},
-    userId: {type: String}
+    name: {type: String, require:true},
+    price: {type: Number, require:true},
+    category: {type: String, require:true},
+    url: {type: String, require:true},
+    userId: { 
+        // tell mongoose that this is a reference
+        type: mongoose.Schema.Types.ObjectId,
+        // tell mongoose what is being reference
+        ref: 'User'
+    }
 }, {
     timestamps: true // mongoose will manage create at and updated fields for us
 })
 
 // turn the schema into a model so we can use it in our js
 // exports
-module.exports = mongoose.model('item', itemSchema)
+module.exports = mongoose.model('Item', itemSchema)
