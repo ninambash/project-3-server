@@ -22,5 +22,5 @@ db.on('error',  err => {
 
 module.exports = {
   User: require('./User'),
-  item: require('./Item')
+  Item: require('./Item')
 }

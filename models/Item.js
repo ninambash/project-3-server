@@ -5,7 +5,7 @@ const mongoose = require("mongoose")
 // type definitions, validations mongoose options all go in the schema
 // mongoose.Schema({ key/val pairs for the model}, options object(mongoose config)})
 
-const itemSchema = new mongoose.Schema({
+const ItemSchema = new mongoose.Schema({
     name: {type: String, require:true},
     price: {type: Number, require:true},
     category: {type: String, require:true},
@@ -22,4 +22,4 @@ const itemSchema = new mongoose.Schema({
 
 // turn the schema into a model so we can use it in our js
 // exports
-module.exports = mongoose.model('Item', itemSchema)
+module.exports = mongoose.model('Item', ItemSchema)
