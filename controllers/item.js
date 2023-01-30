@@ -4,6 +4,7 @@ const { isValidObjectId } = require('mongoose')
 const {Item} = require('../models')
 const router = express.Router()
 const db = require('../models')
+const authLockedRoute = require('./api-v1/authLockedRoute')
 
 // mount our routes on the router
 
@@ -39,13 +40,10 @@ router.get('/', async (req,res) =>{
 
 
 // POST /item/new -- create one item 
-router.post('/new', async (req,res) =>{
+router.post('/new',authLockedRoute, async (req,res) =>{
     try{
   // find user
-  const existingUser = await db.User.findOne(
-    { 
-        _id: req.body.user
-    })
+  const existingUser = res.locals.user
     // creates a new item
     const newItem = await db.Item.findOneAndUpdate( 
         {name: req.body.name} ,
