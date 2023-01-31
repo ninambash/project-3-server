@@ -40,7 +40,7 @@ router.get('/', async (req,res) =>{
 
 
 // POST /item/new -- create one item 
-router.post('/new',authLockedRoute, async (req,res) =>{
+router.post('/new', authLockedRoute, async (req,res) =>{
     try{
   // find user
   const existingUser = res.locals.user
@@ -72,7 +72,7 @@ router.post('/new',authLockedRoute, async (req,res) =>{
     }
 })
 // PUT /item/:id -- update one item
-router.put('/:id', async (req,res) =>{
+router.put('/:id', authLockedRoute, async (req,res) =>{
     try{
 
     // update an existing item
@@ -101,7 +101,7 @@ router.put('/:id', async (req,res) =>{
 })
 
 //DELETE /:id - deletes an item from items table and the reference in the users table
-    router.delete('/:id', async (req,res) =>{
+    router.delete('/:id', authLockedRoute, async (req,res) =>{
         try{
             //get item to delete from items table, need to get info before we delete the table to use in the user table
             const itemToDelete = await db.Item.findOne({
@@ -109,13 +109,15 @@ router.put('/:id', async (req,res) =>{
             })
             
             //find user that created the item in the user table
-            const getUser = await db.User.findOne({
-                _id: itemToDelete.userId  
-            })
+            const getUser = res.locals.user
+            // await db.User.findOne({
+            //     _id: itemToDelete.userId  
+            // })
            
             //update user table to remove one item from user table
             const deleteFromUser = await db.User.updateOne(
                 {_id: itemToDelete.userId},
+                // {_id: itemToDelete.userId},
                 {$pull: {items: {$in: [req.params.id]}}}
             )
 
@@ -124,7 +126,7 @@ router.put('/:id', async (req,res) =>{
 
             res.json('item deleted from items table and from user who created it')
             
-        } catch(err){
+        } catch(err){``
             console.log(err)
             res.status(500).json({
                 msg: 'internal server error, contact the system administrator'
