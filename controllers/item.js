@@ -101,7 +101,7 @@ router.put('/:id', authLockedRoute, async (req,res) =>{
 })
 
 //DELETE /:id - deletes an item from items table and the reference in the users table
-    router.delete('/:id', authLockedRoute, async (req,res) =>{
+    router.delete('/:id', async (req,res) =>{
         try{
             //get item to delete from items table, need to get info before we delete the table to use in the user table
             const itemToDelete = await db.Item.findOne({
